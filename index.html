@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jugando con el Asincronismo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="title-container">
+      <img src="./src/pokemon-title.jpg" alt="Pokemon Title" class="title" />
+      <h2 class="msg-alert">Only one request!</h2>
+    </div>
+    <form class="user-data-container">
+      <div class="element-form-container">
+        <label
+          for="number-question"
+          class="label-question user-number-question"
+        >
+          How many pokemons would you like to see?
+        </label>
+        <input
+          type="number"
+          min="1"
+          max="1118"
+          class="input-data user-number-pokemons"
+          id="number-question"
+          placeholder="Max: 1118 pokemons"
+        />
+        <button
+          class="btn"
+          id="btn-pokemons"
+          type="button"
+          onclick="printManyPokemonCards()"
+        >
+          Send
+        </button>
+      </div>
+      <div class="element-form-container">
+        <label for="name-question" class="label-question user-name-question">
+          What pokemon do you want to see?
+        </label>
+        <input
+          type="text"
+          class="input-data user-name-pokemon"
+          id="name-question"
+          placeholder="Example: pikachu"
+        />
+        <button
+          class="btn"
+          id="btn-name-pokemon"
+          type="button"
+          onclick="printThePokemonCard()"
+        >
+          Send
+        </button>
+      </div>
+      <div class="msg-invalid-option"></div>
+    </form>
+    <h2 id="subtitle"></h2>
+    <main class="main"></main>
+    <script src="./fetchData.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

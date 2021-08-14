@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+  font-family: monospace;
+  scroll-behavior: smooth;
+}
+.title-container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.msg-alert {
+  padding: 20px;
+  color: red;
+  text-align: center;
+  font-size: 3.4rem;
+  font-weight: bold;
+}
+.title {
+  width: 300px;
+}
+
+.main {
+  width: 96vw;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.user-data-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.element-form-container {
+  margin-bottom: 15px;
+}
+
+.label-question {
+  font-size: 2.8rem;
+  font-weight: bold;
+}
+
+.input-data {
+  padding-left: 10px;
+  font-size: 2rem;
+  font-family: monospace;
+  color: black;
+  width: 200px;
+  height: 35px;
+  border-radius: 10px;
+  outline: none;
+}
+
+::placeholder {
+  font-size: 1.8rem;
+}
+
+.btn {
+  padding: 10px 20px;
+  margin-left: 20px;
+  border-radius: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  font-style: italic;
+  cursor: pointer;
+}
+.btn:hover {
+  color: white;
+  background-color: red;
+  border: 2px solid black;
+}
+
+#subtitle {
+  margin-bottom: 50px;
+  font-size: 3.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+#subtitle span {
+  padding: 6px 10px;
+  border: 2px solid black;
+  border-radius: 25%;
+  color: white;
+  background-color: red;
+  font-size: 3.5rem;
+}
+
+#pokemon-container {
+  min-width: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 10px 0px;
+  margin-bottom: 40px;
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+
+  position: relative;
+  background: url(./src/pokeball2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+img {
+  width: 130px;
+  margin-bottom: 10px;
+}
+p {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px 5px 10px;
+  margin-bottom: 10px;
+
+  font-size: 1.9rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 3.4rem;
+}
+
+#pokemon-id {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 9px;
+  color: white;
+  background-color: black;
+  border: none;
+  border-left: 1px solid white;
+  border-bottom: 1px solid white;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+
+  font-size: 2.4rem;
+}
+
+/* For invalid option in the 2nd question */
+
+.invalid-msg-style {
+  margin-top: 20px;
+  padding: 10px 15px;
+  color: black;
+  /* background-color: rgba(0, 0, 0, 0.1);
+  border: 3px solid black; */
+  border-bottom: 4px solid red;
+  font-size: 3rem;
+  font-weight: bold;
+}
