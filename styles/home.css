@@ -121,6 +121,10 @@ ul li {
   border-radius: 10px;
   filter: brightness(115%);
 }
+.pokedex__item:hover .bg-pokemon {
+  background: rgba(255, 255, 255, 0.2);
+  filter: brightness(105%);
+}
 
 .normal {
   background: #a8a77a;
@@ -175,9 +179,4 @@ ul li {
 }
 .fairy {
   background: #d685ad;
-}
-
-.pokedex__item:hover .bg-pokemon {
-  background: rgba(255, 255, 255, 0.2);
-  filter: brightness(105%);
 }
