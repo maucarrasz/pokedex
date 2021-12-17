@@ -2,6 +2,9 @@ const pokedex = document.getElementById("pokedex"),
   pokedexChilds = Array.from(pokedex.children),
   pokedexLength = pokedexChilds.length;
 
+let pokemonsNameArray = [],
+  pokemonsIdArray = [];
+
 // const colors = {
 //   normal: "#A8A77A",
 //   fire: "#EE8130",
@@ -23,6 +26,16 @@ const pokedex = document.getElementById("pokedex"),
 //   fairy: "#D685AD",
 // };
 
+async function createPokemonsNameArray() {
+  await consultPokemons(pokedexLength);
+
+  let pokemonsName = pokedex.querySelectorAll(".pokemon__name");
+  pokemonsName = Array.from(pokemonsName);
+  for (let pokemonName of pokemonsName) {
+    pokemonsNameArray.push(pokemonName.textContent.toLowerCase());
+  }
+}
+
 async function consultPokemon(id) {
   try {
     const pokemon = await fetchData(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -38,8 +51,7 @@ async function consultPokemons(numPokemons) {
     await consultPokemon(i + 1);
   }
 }
-
-window.onload = consultPokemons(pokedexLength);
+// window.onload = consultPokemons(pokedexLength);
 
 function createPokemon(pokemon, id) {
   let thisPokemon = pokedexChilds[id - 1];
@@ -50,13 +62,20 @@ function createPokemon(pokemon, id) {
 
   itemId.textContent = `#${elegantId(pokemon.id)}`;
 
-  itemImg.setAttribute(
-    "src",
-    `${pokemon.sprites.other.dream_world.front_default}`
-  );
-  if (itemImg.getAttribute("src") == "null") {
-    itemImg.setAttribute("src", `${pokemon.sprites.other.home.front_default}`);
+  let src;
+  let imageUrl1 = pokemon.sprites.other.dream_world.front_default;
+  let imageUrl2 = pokemon.sprites.other.home.front_default;
+  let imageUrl3 = pokemon.sprites.other["official-artwork"].front_default;
+
+  if (imageUrl1 !== null) {
+    src = imageUrl1;
+  } else if (imageUrl2 !== null) {
+    src = imageUrl2;
+  } else if (imageUrl3 !== null) {
+    src = imageUrl3;
   }
+
+  itemImg.setAttribute("src", src);
 
   itemName.textContent = `${capitalizeString(pokemon.species.name)}`;
 
@@ -92,6 +111,13 @@ function createPokemon(pokemon, id) {
     }
   }
 }
+
+function createPokemonIdArray(numPokemons) {
+  for (let i = 1; i <= numPokemons; i++) {
+    pokemonsIdArray.push(String(i));
+  }
+}
+console.log(pokemonsIdArray);
 
 function createNewPokemonItem(pokemon) {
   let itemContainer = document.createElement("li");
@@ -153,3 +179,13 @@ function createNewPokemonItem(pokemon) {
     itemTypeCtn.style.padding = "0";
   }
 }
+
+function numPokemonsPokeapi() {
+  let numPokemons = 898;
+  console.log(`N° de Pokemones en Pokeapi: ${numPokemons}`);
+}
+
+createPokemonsNameArray();
+createPokemonIdArray(pokedexLength);
+
+numPokemonsPokeapi();

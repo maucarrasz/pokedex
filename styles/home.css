@@ -64,6 +64,36 @@ ul li {
   padding: 0 20px;
 }
 
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+.input-search {
+  width: 200px;
+  height: 30px;
+  padding: 12px;
+  margin-right: 12px;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+.btn-search {
+  width: 80px;
+  height: 30px;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #000;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.btn-search:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
 .pokedex {
   --item-width: 200px;
   display: grid;
@@ -121,6 +151,11 @@ ul li {
   border-radius: 10px;
   filter: brightness(115%);
 }
+
+.hidden {
+  display: none;
+}
+
 .pokedex__item:hover .bg-pokemon {
   background: rgba(255, 255, 255, 0.2);
   filter: brightness(105%);
