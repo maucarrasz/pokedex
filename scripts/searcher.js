@@ -9,6 +9,16 @@ inputSearch.addEventListener("keydown", function (e) {
 
 btnSearch.addEventListener("click", searchPokemon);
 
+function pokemonNotFound() {
+  pokedex.classList.add("hidden");
+
+  const mainContainer = pokedex.parentNode;
+  let div = document.createElement("div");
+  div.textContent = "Pokemon Not Found";
+  div.classList.add("not-found");
+  mainContainer.appendChild(div);
+}
+
 function searchPokemon() {
   let inputValue = inputSearch.value;
 
@@ -35,5 +45,6 @@ function searchPokemon() {
     }
   } else {
     console.log(`El pokemon no existe :c`);
+    pokemonNotFound();
   }
 }
