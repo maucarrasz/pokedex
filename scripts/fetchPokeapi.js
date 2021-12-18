@@ -26,16 +26,6 @@ let pokemonsNameArray = [],
 //   fairy: "#D685AD",
 // };
 
-async function createPokemonsNameArray() {
-  await consultPokemons(pokedexLength);
-
-  let pokemonsName = pokedex.querySelectorAll(".pokemon__name");
-  pokemonsName = Array.from(pokemonsName);
-  for (let pokemonName of pokemonsName) {
-    pokemonsNameArray.push(pokemonName.textContent.toLowerCase());
-  }
-}
-
 async function consultPokemon(id) {
   try {
     const pokemon = await fetchData(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -112,6 +102,18 @@ function createPokemon(pokemon, id) {
   }
 }
 
+async function createPokemonsNameArray() {
+  const data = await fetchData(
+    "https://pokeapi.co/api/v2/pokemon-species?limit=898"
+  );
+  const pokemons = Array.from(data.results);
+
+  for (let pokemon of pokemons) {
+    pokemonsNameArray.push(pokemon.name);
+  }
+  // console.log(pokemonsNameArray);
+}
+
 function createPokemonIdArray(numPokemons) {
   for (let i = 1; i <= numPokemons; i++) {
     pokemonsIdArray.push(String(i));
@@ -185,6 +187,7 @@ function numPokemonsPokeapi() {
   console.log(`N° de Pokemones en Pokeapi: ${numPokemons}`);
 }
 
+consultPokemons(pokedexLength);
 createPokemonsNameArray();
 createPokemonIdArray(pokedexLength);
 
