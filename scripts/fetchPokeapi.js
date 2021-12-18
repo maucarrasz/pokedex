@@ -54,8 +54,8 @@ function createPokemon(pokemon, id) {
 
   let src;
   let imageUrl1 = pokemon.sprites.other.dream_world.front_default;
-  let imageUrl2 = pokemon.sprites.other.home.front_default;
-  let imageUrl3 = pokemon.sprites.other["official-artwork"].front_default;
+  let imageUrl2 = pokemon.sprites.other["official-artwork"].front_default;
+  let imageUrl3 = pokemon.sprites.other.home.front_default;
 
   if (imageUrl1 !== null) {
     src = imageUrl1;
@@ -67,12 +67,12 @@ function createPokemon(pokemon, id) {
 
   itemImg.setAttribute("src", src);
 
-  itemName.textContent = `${capitalizeString(pokemon.species.name)}`;
+  itemName.textContent = `${pokemon.species.name}`;
 
   let type = document.createElement("div");
   itemTypeCtn.appendChild(type);
   let type1 = pokemon.types[0].type.name;
-  type.textContent = `${capitalizeString(type1)}`;
+  type.textContent = `${type1}`;
   backgroundType(type);
 
   let type2;
@@ -80,7 +80,7 @@ function createPokemon(pokemon, id) {
     let type = document.createElement("div");
     itemTypeCtn.appendChild(type);
     type2 = pokemon.types[1].type.name;
-    type.textContent = `${capitalizeString(type2)}`;
+    type.textContent = `${type2}`;
     backgroundType(type);
   }
 
@@ -99,6 +99,10 @@ function createPokemon(pokemon, id) {
     for (type of arrayTypes) {
       type.style.padding = "4px 8px";
     }
+  }
+
+  if (itemName.textContent.length > 11) {
+    itemName.style.fontSize = "1.8rem";
   }
 }
 
@@ -151,14 +155,12 @@ function createNewPokemonItem(pokemon) {
     "src",
     `${pokemon.sprites.other.dream_world.front_default}`
   );
-  itemName.textContent = `${capitalizeString(pokemon.name)}`;
-
-  // console.log(`${pokemon.name}, N° de tipos: ${pokemon.types.length}`);
+  itemName.textContent = `${pokemon.name}`;
 
   let type = document.createElement("div");
   itemTypeCtn.appendChild(type);
   let type1 = pokemon.types[0].type.name;
-  itemTypeCtn.children[0].textContent = `${capitalizeString(type1)}`;
+  itemTypeCtn.children[0].textContent = `${type1}`;
   backgroundType(itemTypeCtn.children[0]);
 
   let type2;
@@ -166,7 +168,7 @@ function createNewPokemonItem(pokemon) {
     let type = document.createElement("div");
     itemTypeCtn.appendChild(type);
     type2 = pokemon.types[1].type.name;
-    itemTypeCtn.children[1].textContent = `${capitalizeString(type2)}`;
+    itemTypeCtn.children[1].textContent = `${type2}`;
     backgroundType(itemTypeCtn.children[1]);
   }
 
@@ -177,7 +179,6 @@ function createNewPokemonItem(pokemon) {
     totalLength = type1.length;
   }
   if (totalLength >= 12) {
-    // console.log(`${pokemon.name} ${type1}, ${type2}, ${totalLength}`);
     itemTypeCtn.style.padding = "0";
   }
 }
