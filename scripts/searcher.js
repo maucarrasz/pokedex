@@ -1,28 +1,37 @@
 const inputSearch = document.getElementById("input-search"),
-  btnSearch = document.getElementById("btn-search");
+  btnSearch = document.getElementById("btn-search"),
+  divNotFound = document.getElementById("not-found");
 
 inputSearch.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
     searchPokemon();
   }
 });
+inputSearch.addEventListener("input", allPokemons);
 
 btnSearch.addEventListener("click", searchPokemon);
 
+function allPokemons() {
+  let inputValue = inputSearch.value;
+  if (inputValue.length === 0) {
+    pokedex.classList.remove("hidden");
+    divNotFound.classList.add("hidden");
+    for (let i in pokedexChilds) {
+      pokedexChilds[i].classList.remove("hidden");
+    }
+  }
+}
+
 function pokemonNotFound() {
   pokedex.classList.add("hidden");
-
-  const mainContainer = pokedex.parentNode;
-  let div = document.createElement("div");
-  div.textContent = "Pokemon Not Found";
-  div.classList.add("not-found");
-  mainContainer.appendChild(div);
+  divNotFound.classList.remove("hidden");
 }
 
 function searchPokemon() {
   let inputValue = inputSearch.value;
-
   if (pokemonsNameArray.includes(inputValue)) {
+    pokedex.classList.remove("hidden");
+    divNotFound.classList.add("hidden");
     let pokemonNameIndex = pokemonsNameArray.indexOf(inputValue);
     console.log(`El pokemon ${inputValue} existe!!`);
 
@@ -34,6 +43,8 @@ function searchPokemon() {
       }
     }
   } else if (pokemonsIdArray.includes(inputValue)) {
+    pokedex.classList.remove("hidden");
+    divNotFound.classList.add("hidden");
     let pokemonIdIndex = pokemonsIdArray.indexOf(inputValue);
 
     for (let pokemonIndex in pokedexChilds) {
