@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Russo+One&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/card.css" />
+  </head>
+  <body>
+    <div class="app">
+      <h1>App</h1>
+    </div>
+    <div class="bgcard-container" id="bgcard-container">
+      <div class="card-container">
+        <div class="card" id="card">
+          <div class="card-info">
+            <div class="card-info__left">
+              <p class="pokemon__id">#001</p>
+              <p class="pokemon__name">Bulbasaur</p>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
+                alt="Pokemon"
+                class="pokemon__img"
+              />
+              <div class="pokemon__type">
+                <div class="box type">grass</div>
+                <div class="box type">poison</div>
+              </div>
+              <div class="pokemon__legendary">Legendary</div>
+              <div class="info__additional">
+                <p class="additional"><span>Height:</span> 0.7m</p>
+                <p class="additional"><span>Weight:</span> 6.9kg</p>
+                <div class="pokemon__gender">
+                  <span>85% <span class="male-icon">♂</span></span>
+                  <span>15% <span class="female-icon">♀</span></span>
+                </div>
+              </div>
+            </div>
+            <div class="card-info__right">
+              <h2>About</h2>
+              <p class="about__content">
+                A strange seed was planted on its back at birth. The plant
+                sprouts and grows with this POKéMON.
+              </p>
+              <h2>Stats</h2>
+              <div class="stats-container">
+                <div class="stat">
+                  <span class="stat__name">HP</span>
+                  <span class="stat__number">12</span>
+                </div>
+                <div class="stat">
+                  <span class="stat__name">ATTACK</span>
+                  <span class="stat__number">42</span>
+                </div>
+                <div class="stat">
+                  <span class="stat__name">DEFENSE</span>
+                  <span class="stat__number">34</span>
+                </div>
+                <div class="stat">
+                  <span class="stat__name">S. ATTACK</span>
+                  <span class="stat__number">32</span>
+                </div>
+                <div class="stat">
+                  <span class="stat__name">S. DEFENSE</span>
+                  <span class="stat__number">36</span>
+                </div>
+                <div class="stat">
+                  <span class="stat__name">SPEED</span>
+                  <span class="stat__number">24</span>
+                </div>
+              </div>
+              <h2 class="abilities-title">Abilities</h2>
+              <div class="abilities-container">
+                <div class="box ability">taladrador</div>
+                <div class="box ability">monstruo verde</div>
+              </div>
+              <h2 class="egg-groups-title">Egg Groups</h2>
+              <div class="egg-groups-container">
+                <div class="box egg-group">monster</div>
+                <div class="box egg-group">plant</div>
+              </div>
+            </div>
+            <div class="close-container" id="close-container">
+              <svg
+                class="icon-close"
+                xmlns:dc="http://purl.org/dc/elements/1.1/"
+                xmlns:cc="http://creativecommons.org/ns#"
+                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                xmlns:svg="http://www.w3.org/2000/svg"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                version="1.1"
+                x="0px"
+                y="0px"
+                width="24px"
+                height="24px"
+                viewBox="0 0 24 24"
+                style="enable-background: new 0 0 24 24"
+                xml:space="preserve"
+                id="svg2"
+                inkscape:version="0.48.4 r9939"
+                sodipodi:docname="VisualEditor_-_Icon_-_Close.svg"
+              >
+                <g id="Icons" style="opacity: 1">
+                  <g id="close">
+                    <polygon
+                      id="x"
+                      style="fill-rule: evenodd; clip-rule: evenodd"
+                      points="18.717,6.697 17.303,5.283 12,10.586 6.697,5.283    5.283,6.697 10.586,12 5.283,17.303 6.697,18.717 12,13.414 17.303,18.717 18.717,17.303 13.414,12   "
+                    />
+                  </g>
+                </g>
+                <g id="Guides" style="display: none" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./scripts/card.js"></script>
+  </body>
+</html>

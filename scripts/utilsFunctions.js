@@ -5,6 +5,21 @@ function capitalizeString(string) {
   const stringCapitalized = string.charAt(0).toUpperCase() + string.slice(1);
   return stringCapitalized;
 }
+function genderRate(rate) {
+  if (rate === -1) {
+    console.log("Genderless");
+    return "Genderless";
+  } else {
+    let genderPercentages = [];
+    let genderFemaleRate = (rate / 8) * 100;
+    let genderMaleRate = 100 - genderFemaleRate;
+    genderPercentages.push(genderMaleRate);
+    genderPercentages.push(genderFemaleRate);
+    console.log(`Male: ${genderPercentages[0]}%`);
+    console.log(`Female: ${genderPercentages[1]}%`);
+    return genderPercentages;
+  }
+}
 
 function backgroundType(type) {
   if (type.textContent.toLowerCase() === "normal") {

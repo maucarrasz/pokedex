@@ -12,15 +12,15 @@ html {
   font-family: monospace;
   scroll-behavior: smooth;
 }
-body {
+.app {
   background: var(--bg-main);
 }
 
-.header {
+.app__header {
   width: 100%;
   height: 60px;
 }
-.header nav {
+.app__header nav {
   width: inherit;
   height: inherit;
 }
@@ -44,8 +44,8 @@ ul li {
 .navbar-list li:nth-child(1) {
   height: inherit;
 }
-.navbar-list li:nth-child(2),
-.navbar-list li:nth-child(2) a {
+.navbar-list .github-icon,
+.navbar-list .github-icon a {
   height: inherit;
 }
 
@@ -57,17 +57,17 @@ ul li {
 .navbar-list li:nth-child(2) svg {
   width: 36px;
   height: 36px;
-  fill: #fff;
 }
 
-.main-container {
+.app__main {
+  min-height: calc(100vh - 171px);
   padding: 0 20px;
 }
 
 .btn-container {
   display: flex;
   justify-content: center;
-  margin: 24px 0;
+  padding: 24px 0;
 }
 
 .input-search {
@@ -89,9 +89,6 @@ ul li {
   border: 1px solid #000;
   border-radius: 15px;
   cursor: pointer;
-}
-.btn-search:hover {
-  background: rgba(255, 255, 255, 0.3);
 }
 
 .pokedex {
@@ -157,6 +154,40 @@ ul li {
   text-transform: capitalize;
 }
 
+.app__footer {
+  width: 100%;
+  padding: 0 20px;
+}
+.footer-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-family: "Russo One", sans-serif;
+  text-align: center;
+}
+.footer-info a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-info div:nth-child(1) {
+  margin-top: 32px;
+  font-size: 2rem;
+}
+.footer-info .github-icon {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.footer-info .github-icon a {
+  display: block;
+  height: auto;
+}
+.footer-info .github-icon svg {
+  height: 32px;
+}
+
 .hidden {
   display: none;
 }
@@ -169,9 +200,21 @@ ul li {
   font-weight: bold;
 }
 
+/* Hover states */
+.btn-search:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
 .pokedex__item:hover .bg-pokemon {
   background: rgba(255, 255, 255, 0.2);
   filter: brightness(105%);
+}
+.app a:hover {
+  text-decoration: underline;
+}
+
+/* Icons */
+.github-icon svg {
+  fill: #fff;
 }
 
 .normal {
