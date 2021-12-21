@@ -7,7 +7,6 @@ function capitalizeString(string) {
 }
 function genderRate(rate) {
   if (rate === -1) {
-    console.log("Genderless");
     return "Genderless";
   } else {
     let genderPercentages = [];
@@ -15,9 +14,12 @@ function genderRate(rate) {
     let genderMaleRate = 100 - genderFemaleRate;
     genderPercentages.push(genderMaleRate);
     genderPercentages.push(genderFemaleRate);
-    console.log(`Male: ${genderPercentages[0]}%`);
-    console.log(`Female: ${genderPercentages[1]}%`);
     return genderPercentages;
+  }
+}
+function removeNodeChilds(parentNode) {
+  while (parentNode.firstChild) {
+    parentNode.removeChild(parentNode.firstChild);
   }
 }
 

@@ -12,10 +12,10 @@ html {
   scroll-behavior: smooth;
 }
 
-.app {
+/* .app {
   width: 100%;
   height: 4000px;
-}
+} */
 
 .bgcard-container {
   width: 100%;
@@ -55,7 +55,7 @@ html {
   overflow-y: auto;
 }
 
-.close-container {
+.card .close-container {
   display: grid;
   place-items: center;
   width: 36px;
@@ -67,7 +67,7 @@ html {
   border-radius: 50%;
   cursor: pointer;
 }
-.icon-close {
+.card .icon-close {
   width: 20px;
   height: 20px;
 }
@@ -81,7 +81,7 @@ html {
   border-radius: 10px;
 }
 
-.box {
+.card .box {
   display: grid;
   place-items: center;
   padding: 4px 12px;
@@ -100,16 +100,16 @@ html {
   padding: 24px;
 }
 
-.pokemon__id {
+.card .pokemon__id {
   margin-bottom: 20px;
   font-family: "Russo One", sans-serif;
   font-size: 3.8rem;
 }
-.pokemon__img {
+.card .pokemon__img {
   width: 132px;
   height: 132px;
 }
-.pokemon__name {
+.card .pokemon__name {
   margin-bottom: 20px;
   font-family: "Press Start 2P", cursive;
   font-family: "Russo One", sans-serif;
@@ -117,7 +117,7 @@ html {
   font-size: 6rem;
   text-transform: capitalize;
 }
-.pokemon__type {
+.card .pokemon__type {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -125,7 +125,7 @@ html {
   margin: 36px 0 40px;
   padding: 0 8px;
 }
-.type {
+.card .type {
   font-size: 2.8rem;
 }
 

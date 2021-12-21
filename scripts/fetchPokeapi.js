@@ -1,6 +1,7 @@
 const pokedex = document.getElementById("pokedex"),
   pokedexChilds = Array.from(pokedex.children),
-  pokedexLength = pokedexChilds.length;
+  pokedexLength = pokedexChilds.length,
+  bgCardContainer = document.getElementById("bgcard-container");
 
 let pokemonsNameArray = [],
   pokemonsIdArray = [];
@@ -29,8 +30,8 @@ let pokemonsNameArray = [],
 async function consultPokemon(id) {
   try {
     const pokemon = await fetchData(`https://pokeapi.co/api/v2/pokemon/${id}`);
-    // console.log(pokemon);
     createPokemon(pokemon, id);
+    // console.log(pokemon);
   } catch {
     console.error(error);
   }
