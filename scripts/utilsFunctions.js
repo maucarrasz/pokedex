@@ -25,7 +25,7 @@ function removeNodeChilds(parentNode) {
 
 function backgroundType(type) {
   if (type.textContent.toLowerCase() === "normal") {
-    type.classList.add("fire");
+    type.classList.add("normal");
   } else if (type.textContent.toLowerCase() === "fighting") {
     type.classList.add("fighting");
   } else if (type.textContent.toLowerCase() === "flying") {
