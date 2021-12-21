@@ -178,6 +178,15 @@ async function createPokemonCard(id) {
 }
 
 function resetCardTemplate() {
+  cardId.textContent = "???";
+  cardName.textContent = "";
+  cardImage.setAttribute("src", "./src/silueta-pikachu.png");
+  cardHeight.textContent = "";
+  cardWeight.textContent = "";
+  cardAbout.textContent = "";
+  for (let i in cardStatsNumberArray) {
+    cardStatsNumberArray[i].textContent = "??";
+  }
   removeNodeChilds(cardTypesContainer);
   removeNodeChilds(cardGender);
   removeNodeChilds(cardAbilitiesContainer);
@@ -186,7 +195,6 @@ function resetCardTemplate() {
 
 function closeCard() {
   bgCardContainer.classList.add("hidden");
-  cardImage.setAttribute("src", "../src/silueta-pikachu.png");
   resetCardTemplate();
 }
 
