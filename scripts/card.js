@@ -8,8 +8,7 @@ const cardId = cardContainer.querySelector(".pokemon__id"),
   cardLegendary = cardContainer.querySelector(".pokemon__legendary"),
   cardHeight = cardContainer.querySelector(".additional__height"),
   cardWeight = cardContainer.querySelector(".additional__weight"),
-  cardGenderMale = cardContainer.querySelector(".gender__male"),
-  cardGenderFemale = cardContainer.querySelector(".gender__female"),
+  cardGender = cardContainer.querySelector(".pokemon__gender"),
   cardAbout = cardContainer.querySelector(".about__content"),
   cardAbilitiesContainer = cardContainer.querySelector(".abilities-container"),
   cardEggGroupsContainer = cardContainer.querySelector(".egg-groups-container");
@@ -19,7 +18,7 @@ let cardStatsNumberArray = cardContainer.querySelectorAll(
 );
 cardStatsNumberArray = Array.from(cardStatsNumberArray);
 
-console.log(pokedexChilds);
+console.log(`N° de Pokemones en la Pokedex: ${pokedexLength}`);
 
 for (let i = 0; i < pokedexLength; i++) {
   pokedexChilds[i].addEventListener("click", function () {
@@ -69,14 +68,31 @@ async function createPokemonCard(id) {
 
   let genRate = pokemonSpecies.gender_rate;
   if (genRate === -1) {
-    let divGenderFemale = cardGenderFemale.parentNode;
-    let pokemonGender = divGenderFemale.parentNode;
-
-    pokemonGender.innerHTML = genderRate(genRate);
+    cardGender.textContent = genderRate(genRate);
   } else if (Array.isArray(genderRate(genRate))) {
     let genderArray = genderRate(genRate);
-    cardGenderMale.textContent = `${genderArray[0]}%`;
-    cardGenderFemale.textContent = `${genderArray[1]}%`;
+    let divMale = document.createElement("div"),
+      divFemale = document.createElement("div"),
+      spanMaleNum = document.createElement("span"),
+      spanFemaleNum = document.createElement("span"),
+      spanMaleIcon = document.createElement("span"),
+      spanFemaleIcon = document.createElement("span");
+    spanMaleNum.classList.add("gender__male");
+    spanMaleIcon.classList.add("male-icon");
+    spanFemaleNum.classList.add("gender__female");
+    spanFemaleIcon.classList.add("female-icon");
+    spanMaleIcon.textContent = "♂";
+    spanFemaleIcon.textContent = "♀";
+
+    spanMaleNum.textContent = `${genderArray[0]}% `;
+    spanFemaleNum.textContent = `${genderArray[1]}% `;
+
+    cardGender.appendChild(divMale);
+    cardGender.appendChild(divFemale);
+    divMale.appendChild(spanMaleNum);
+    divMale.appendChild(spanMaleIcon);
+    divFemale.appendChild(spanFemaleNum);
+    divFemale.appendChild(spanFemaleIcon);
   }
 
   let aboutContent;
@@ -155,22 +171,25 @@ async function createPokemonCard(id) {
     divEggGroup.textContent = `${eggGroup2}`;
   }
 
-  console.log(pokemon.types.length);
   if (pokemon.types.length === 1) {
     let uniqueType = cardTypesContainer.querySelector("div:nth-child(1)");
     uniqueType.style.marginRight = "0px";
   }
 }
 
-function closeCard() {
-  bgCardContainer.classList.add("hidden");
-  cardImage.setAttribute("src", "../src/silueta-pikachu.png");
+function resetCardTemplate() {
   removeNodeChilds(cardTypesContainer);
+  removeNodeChilds(cardGender);
   removeNodeChilds(cardAbilitiesContainer);
   removeNodeChilds(cardEggGroupsContainer);
 }
 
+function closeCard() {
+  bgCardContainer.classList.add("hidden");
+  cardImage.setAttribute("src", "../src/silueta-pikachu.png");
+  resetCardTemplate();
+}
+
 function openCard() {
   bgCardContainer.classList.remove("hidden");
-  console.log(this);
 }

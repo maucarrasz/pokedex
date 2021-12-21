@@ -295,7 +295,8 @@ ul li {
   max-height: 570px;
   position: relative;
   background: khaki;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .card-info {
@@ -488,6 +489,9 @@ ul li {
 }
 
 @media screen and (min-width: 768px) {
+  .card {
+    border-radius: 10px;
+  }
   .card-info {
     display: grid;
     grid-template-columns: 2fr 3fr;

@@ -116,7 +116,6 @@ async function createPokemonsNameArray() {
   for (let pokemon of pokemons) {
     pokemonsNameArray.push(pokemon.name);
   }
-  // console.log(pokemonsNameArray);
 }
 
 function createPokemonIdArray(numPokemons) {
@@ -124,7 +123,6 @@ function createPokemonIdArray(numPokemons) {
     pokemonsIdArray.push(String(i));
   }
 }
-console.log(pokemonsIdArray);
 
 function createNewPokemonItem(pokemon) {
   let itemContainer = document.createElement("li");
