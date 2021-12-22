@@ -1,5 +1,5 @@
 # Pokedex
-A simple pokedex made with HTML, CSS and Vanilla JS.
+A simple Pokemon catalogue made with HTML, CSS and Vanilla JS.
 
 ## Links
 - [Demo](https://mauricodev.github.io/pokedex)
@@ -10,21 +10,21 @@ A simple pokedex made with HTML, CSS and Vanilla JS.
 - Scroll to top
 - Responsive design
 
-## Snapshots
+## Demo Screen
 
-Demo in action
-...
+![demo-screen](https://user-images.githubusercontent.com/70554280/147031494-e9bcf8aa-c02a-4367-b43c-3042f5222353.jpg)
+
 
 ## Built With
 - Vanilla JS
 - PokéAPI
 
 ## Credits
-- [Scroll to top](https://www.youtube.com/watch?v=EqaatuE4vQE)
 - [Pokemon type colors](https://gist.github.com/apaleslimghost/0d25ec801ca4fc43317bcff298af43c3)
-- [This video](https://www.youtube.com/watch?v=NduleX-AC74&t) gave me an idea to implement the search Pokemon  
 
-## Other useful resources
+## Useful resources
+- [Buscador en tiempo real con Javascript utilizando indexOf y Bootstrap 4.](https://www.youtube.com/watch?v=NduleX-AC74&t)
+- [Scroll to top](https://www.youtube.com/watch?v=EqaatuE4vQE)
 - [Window.scrollTo()](https://developer.mozilla.org/es/docs/Web/API/Window/scrollTo)
 - [Element.scrollTop()](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTop)
 - [display: none vs opacity: 0 vs visibilidad: hidden](https://thisthat.dev/display-none-vs-opacity-0-vs-visibility-hidden/)
