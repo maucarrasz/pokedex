@@ -312,8 +312,8 @@ ul li {
 .card .close-container {
   display: grid;
   place-items: center;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   position: absolute;
   top: 16px;
   right: 16px;
@@ -322,8 +322,8 @@ ul li {
   cursor: pointer;
 }
 .card .icon-close {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
 }
 .icon-close polygon {
   fill: #f2f4f4;
@@ -394,7 +394,7 @@ ul li {
   text-align: center;
 }
 
-.additional span {
+.additional span:nth-child(1) {
   font-weight: bold;
 }
 
@@ -491,10 +491,10 @@ ul li {
 /* Pokemon Card styles END */
 
 .go-top {
-  padding: 8px;
+  padding: 12px;
   position: fixed;
-  bottom: 8px;
-  right: 8px;
+  bottom: 16px;
+  right: 16px;
   background: #626567;
   border-radius: 50%;
   z-index: 1001;
@@ -502,8 +502,8 @@ ul li {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
 }
 .go-top svg {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   transform: rotate(90deg);
 }
 
@@ -523,20 +523,5 @@ ul li {
   }
   .card-info > div:nth-child(1) {
     margin-bottom: 0px;
-  }
-  .go-top {
-    padding: 12px;
-    bottom: 16px;
-    right: 8px;
-  }
-  .go-top svg {
-    width: 24px;
-    height: 24px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .go-top {
-    bottom: 16px;
-    right: 16px;
   }
 }
