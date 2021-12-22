@@ -1,4 +1,5 @@
 const cardContainer = document.querySelector(".card-container"),
+  cardInfo = document.querySelector(".card-info"),
   closeContainer = document.getElementById("close-container");
 
 const cardId = cardContainer.querySelector(".pokemon__id"),
@@ -18,13 +19,14 @@ let cardStatsNumberArray = cardContainer.querySelectorAll(
 );
 cardStatsNumberArray = Array.from(cardStatsNumberArray);
 
-console.log(`N° de Pokemones en la Pokedex: ${pokedexLength}`);
+console.log(`N° de Pokemones en mi Pokedex: ${pokedexLength}`);
 
 for (let i = 0; i < pokedexLength; i++) {
   pokedexChilds[i].addEventListener("click", function () {
     createPokemonCard(pokemonsIdArray[i]);
     openCard();
   });
+  // pokedexChilds[i].addEventListener("click", scrollTopCard);
 }
 
 closeContainer.addEventListener("click", closeCard);
@@ -195,9 +197,16 @@ function resetCardTemplate() {
 
 function closeCard() {
   bgCardContainer.classList.add("hidden");
+
   resetCardTemplate();
 }
 
 function openCard() {
   bgCardContainer.classList.remove("hidden");
+  scrollTopCard();
+}
+function scrollTopCard() {
+  if (cardInfo.scrollTop > 0) {
+    cardInfo.scrollTop = 0;
+  }
 }

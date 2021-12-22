@@ -276,7 +276,7 @@ ul li {
   padding: 0 20px;
   background: var(--bg-main);
   position: fixed;
-  z-index: 1;
+  z-index: 1002;
   inset: 0px;
 }
 
@@ -306,7 +306,7 @@ ul li {
   flex-direction: column;
   position: relative;
   padding: 8px;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .card .close-container {
@@ -488,6 +488,29 @@ ul li {
   border-radius: 10px;
 }
 
+/* Pokemon Card styles END */
+
+.go-top {
+  padding: 8px;
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+  background: #626567;
+  border-radius: 50%;
+  z-index: 1001;
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+.go-top svg {
+  width: 20px;
+  height: 20px;
+  transform: rotate(90deg);
+}
+
+.hidden {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   .card {
     border-radius: 10px;
@@ -496,14 +519,24 @@ ul li {
     display: grid;
     grid-template-columns: 2fr 3fr;
     gap: 12px;
+    overflow-y: auto;
   }
   .card-info > div:nth-child(1) {
     margin-bottom: 0px;
   }
+  .go-top {
+    padding: 12px;
+    bottom: 16px;
+    right: 8px;
+  }
+  .go-top svg {
+    width: 24px;
+    height: 24px;
+  }
 }
-
-/* Pokemon Card styles END */
-
-.hidden {
-  display: none;
+@media screen and (min-width: 1024px) {
+  .go-top {
+    bottom: 16px;
+    right: 16px;
+  }
 }
