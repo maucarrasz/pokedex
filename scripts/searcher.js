@@ -31,7 +31,7 @@ function refreshHiddenClasses() {
 }
 
 function searchPokemon() {
-  let inputValue = inputSearch.value;
+  let inputValue = inputSearch.value.toLowerCase().trim();
 
   if (inputValue.length !== 0) {
     if (pokemonsNameArray.includes(inputValue)) {

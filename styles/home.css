@@ -274,6 +274,11 @@ ul li {
   font-size: 2.4rem;
   font-weight: bold;
 }
+.pikachu-sad {
+  width: 190px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
 
 /* Hover states */
 .btn-search:hover {
