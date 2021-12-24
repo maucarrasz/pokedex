@@ -1,4 +1,5 @@
 const cardContainer = document.querySelector(".card-container"),
+  card = document.querySelector(".card"),
   cardInfo = document.querySelector(".card-info"),
   closeContainer = document.getElementById("close-container");
 
@@ -18,8 +19,6 @@ let cardStatsNumberArray = cardContainer.querySelectorAll(
   ".stat .stat__number"
 );
 cardStatsNumberArray = Array.from(cardStatsNumberArray);
-
-console.log(`N° de Pokemones en mi Pokedex: ${pokedexLength}`);
 
 for (let i = 0; i < pokedexLength; i++) {
   pokedexChilds[i].addEventListener("click", function () {
@@ -128,6 +127,12 @@ async function createPokemonCard(id) {
 
     divType.textContent = `${type2}`;
     backgroundType(divType);
+  }
+
+  if (cardTypesContainer.childNodes.length === 1) {
+    backgroundLinearGradient(card, bgColors[type1], bgColors[type1]);
+  } else if (cardTypesContainer.childNodes.length === 2) {
+    backgroundLinearGradient(card, bgColors[type1], bgColors[type2]);
   }
 
   for (let i in pokemon.stats) {

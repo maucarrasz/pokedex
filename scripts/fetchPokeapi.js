@@ -6,27 +6,6 @@ const pokedex = document.getElementById("pokedex"),
 let pokemonsNameArray = [],
   pokemonsIdArray = [];
 
-// const colors = {
-//   normal: "#A8A77A",
-//   fire: "#EE8130",
-//   water: "#6390F0",
-//   electric: "#F7D02C",
-//   grass: "#7AC74C",
-//   ice: "#96D9D6",
-//   fighting: "#C22E28",
-//   poison: "#A33EA1",
-//   ground: "#E2BF65",
-//   flying: "#A98FF3",
-//   psychic: "#F95587",
-//   bug: "#A6B91A",
-//   rock: "#B6A136",
-//   ghost: "#735797",
-//   dragon: "#6F35FC",
-//   dark: "#705746",
-//   steel: "#B7B7CE",
-//   fairy: "#D685AD",
-// };
-
 async function consultPokemon(id) {
   try {
     const pokemon = await fetchData(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -42,14 +21,13 @@ async function consultPokemons(numPokemons) {
     await consultPokemon(i + 1);
   }
 }
-// window.onload = consultPokemons(pokedexLength);
 
 function createPokemon(pokemon, id) {
-  let thisPokemon = pokedexChilds[id - 1];
-  let itemId = thisPokemon.querySelector(".pokemon__id");
-  let itemImg = thisPokemon.querySelector(".pokemon__img");
-  let itemName = thisPokemon.querySelector(".pokemon__name");
-  let itemTypeCtn = thisPokemon.querySelector(".pokemon__type");
+  let pokedexItem = pokedexChilds[id - 1];
+  let itemId = pokedexItem.querySelector(".pokemon__id");
+  let itemImg = pokedexItem.querySelector(".pokemon__img");
+  let itemName = pokedexItem.querySelector(".pokemon__name");
+  let itemTypeCtn = pokedexItem.querySelector(".pokemon__type");
 
   itemId.textContent = `#${elegantId(pokemon.id)}`;
 
@@ -75,6 +53,7 @@ function createPokemon(pokemon, id) {
   let type1 = pokemon.types[0].type.name;
   type.textContent = `${type1}`;
   backgroundType(type);
+  // console.log("Tipo 1: ", type1);
 
   let type2;
   if (pokemon.types[1]) {
@@ -83,6 +62,13 @@ function createPokemon(pokemon, id) {
     type2 = pokemon.types[1].type.name;
     type.textContent = `${type2}`;
     backgroundType(type);
+    // console.log("Tipo 2: ", type2);
+  }
+
+  if (itemTypeCtn.childNodes.length === 1) {
+    backgroundLinearGradient(pokedexItem, bgColors[type1], bgColors[type1]);
+  } else if (itemTypeCtn.childNodes.length === 2) {
+    backgroundLinearGradient(pokedexItem, bgColors[type1], bgColors[type2]);
   }
 
   let totalLength;
@@ -124,71 +110,75 @@ function createPokemonIdArray(numPokemons) {
   }
 }
 
-function createNewPokemonItem(pokemon) {
-  let itemContainer = document.createElement("li");
-  let itemBg = document.createElement("div");
-  let item = document.createElement("div");
-  let itemId = document.createElement("p");
-  let itemImg = document.createElement("img");
-  let itemName = document.createElement("p");
-  let itemTypeCtn = document.createElement("div");
+// function createNewPokemonItem(pokemon) {
+//   let itemContainer = document.createElement("li");
+//   let itemBg = document.createElement("div");
+//   let item = document.createElement("div");
+//   let itemId = document.createElement("p");
+//   let itemImg = document.createElement("img");
+//   let itemName = document.createElement("p");
+//   let itemTypeCtn = document.createElement("div");
 
-  pokedex.appendChild(itemContainer);
-  itemContainer.appendChild(itemBg);
-  itemBg.appendChild(item);
-  item.appendChild(itemId);
-  item.appendChild(itemImg);
-  item.appendChild(itemName);
-  item.appendChild(itemTypeCtn);
+//   pokedex.appendChild(itemContainer);
+//   itemContainer.appendChild(itemBg);
+//   itemBg.appendChild(item);
+//   item.appendChild(itemId);
+//   item.appendChild(itemImg);
+//   item.appendChild(itemName);
+//   item.appendChild(itemTypeCtn);
 
-  itemContainer.classList.add("pokedex__item");
-  itemBg.classList.add("bg-pokemon");
-  item.classList.add("pokemon");
-  itemId.classList.add("pokemon__id");
-  itemImg.classList.add("pokemon__img");
-  itemName.classList.add("pokemon__name");
-  itemTypeCtn.classList.add("pokemon__type");
+//   itemContainer.classList.add("pokedex__item");
+//   itemBg.classList.add("bg-pokemon");
+//   item.classList.add("pokemon");
+//   itemId.classList.add("pokemon__id");
+//   itemImg.classList.add("pokemon__img");
+//   itemName.classList.add("pokemon__name");
+//   itemTypeCtn.classList.add("pokemon__type");
 
-  itemId.textContent = `#${elegantId(pokemon.id)}`;
-  itemImg.setAttribute(
-    "src",
-    `${pokemon.sprites.other.dream_world.front_default}`
-  );
-  itemName.textContent = `${pokemon.name}`;
+//   itemId.textContent = `#${elegantId(pokemon.id)}`;
+//   itemImg.setAttribute(
+//     "src",
+//     `${pokemon.sprites.other.dream_world.front_default}`
+//   );
+//   itemName.textContent = `${pokemon.name}`;
 
-  let type = document.createElement("div");
-  itemTypeCtn.appendChild(type);
-  let type1 = pokemon.types[0].type.name;
-  itemTypeCtn.children[0].textContent = `${type1}`;
-  backgroundType(itemTypeCtn.children[0]);
+//   let type = document.createElement("div");
+//   itemTypeCtn.appendChild(type);
+//   let type1 = pokemon.types[0].type.name;
+//   itemTypeCtn.children[0].textContent = `${type1}`;
+//   backgroundType(itemTypeCtn.children[0]);
 
-  let type2;
-  if (pokemon.types[1]) {
-    let type = document.createElement("div");
-    itemTypeCtn.appendChild(type);
-    type2 = pokemon.types[1].type.name;
-    itemTypeCtn.children[1].textContent = `${type2}`;
-    backgroundType(itemTypeCtn.children[1]);
-  }
+//   let type2;
+//   if (pokemon.types[1]) {
+//     let type = document.createElement("div");
+//     itemTypeCtn.appendChild(type);
+//     type2 = pokemon.types[1].type.name;
+//     itemTypeCtn.children[1].textContent = `${type2}`;
+//     backgroundType(itemTypeCtn.children[1]);
+//   }
 
-  let totalLength;
-  if (type2) {
-    totalLength = type1.length + type2.length;
-  } else {
-    totalLength = type1.length;
-  }
-  if (totalLength >= 12) {
-    itemTypeCtn.style.padding = "0";
-  }
-}
+//   let totalLength;
+//   if (type2) {
+//     totalLength = type1.length + type2.length;
+//   } else {
+//     totalLength = type1.length;
+//   }
+//   if (totalLength >= 12) {
+//     itemTypeCtn.style.padding = "0";
+//   }
+// }
 
 function numPokemonsPokeapi() {
   let numPokemons = 898;
   console.log(`N° de Pokemones en Pokeapi: ${numPokemons}`);
 }
 
+// go top in reloaded
+window.scrollTo(0, 0);
+
 consultPokemons(pokedexLength);
 createPokemonsNameArray();
 createPokemonIdArray(pokedexLength);
 
 numPokemonsPokeapi();
+console.log(`N° de Pokemones en mi Pokedex: ${pokedexLength}`);
