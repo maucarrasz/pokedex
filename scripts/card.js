@@ -159,23 +159,29 @@ async function createPokemonCard(id) {
     divAbility.textContent = `${ability2}`;
   }
 
-  let divEggGroup = document.createElement("div");
-  cardEggGroupsContainer.appendChild(divEggGroup);
-  let eggGroup1 = pokemonSpecies.egg_groups[0].name;
-  divEggGroup.classList.add("box", "egg-group");
+  if (pokemonSpecies.egg_groups[0]) {
+    let divEggGroup = document.createElement("div");
+    divEggGroup.classList.add("box", "egg-group");
+    let eggGroup1 = pokemonSpecies.egg_groups[0].name;
+    eggGroup1 = eggGroup1.replace("-", " ");
+    divEggGroup.textContent = `${eggGroup1}`;
 
-  eggGroup1 = eggGroup1.replace("-", " ");
-  divEggGroup.textContent = `${eggGroup1}`;
+    cardEggGroupsContainer.appendChild(divEggGroup);
+  } else {
+    let divEggGroup = document.createElement("div");
+    divEggGroup.textContent = `No Egg group`;
+    cardEggGroupsContainer.appendChild(divEggGroup);
+  }
 
   let eggGroup2;
   if (pokemonSpecies.egg_groups[1]) {
     let divEggGroup = document.createElement("div");
-    cardEggGroupsContainer.appendChild(divEggGroup);
-    eggGroup2 = pokemonSpecies.egg_groups[1].name;
     divEggGroup.classList.add("box", "egg-group");
-
+    eggGroup2 = pokemonSpecies.egg_groups[1].name;
     eggGroup2 = eggGroup2.replace("-", " ");
     divEggGroup.textContent = `${eggGroup2}`;
+
+    cardEggGroupsContainer.appendChild(divEggGroup);
   }
 
   if (pokemon.types.length === 1) {
