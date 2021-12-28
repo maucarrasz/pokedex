@@ -185,6 +185,7 @@ async function createPokemonCard(id) {
 }
 
 function resetCardTemplate() {
+  card.style.background = "khaki";
   cardId.textContent = "???";
   cardName.textContent = "";
   cardImage.setAttribute("src", "./src/silueta-pikachu.png");

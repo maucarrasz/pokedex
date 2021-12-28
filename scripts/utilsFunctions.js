@@ -97,6 +97,4 @@ function backgroundLinearGradient(element, bg1, bg2) {
   let linearGradient =
     "linear-gradient(180deg," + bg1 + " 20%," + bg2 + " 100%)";
   element.style.background = linearGradient;
-  // element.style.background = `red`;
-  console.log(element.style.background);
 }
