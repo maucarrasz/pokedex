@@ -90,7 +90,7 @@ html {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 0 20px;
+  padding-left: 20px;
 }
 ul li {
   list-style: none;
@@ -108,11 +108,14 @@ ul li {
 .navbar-list li:nth-child(1) {
   height: inherit;
 }
-.navbar-list .github-icon,
-.navbar-list .github-icon a {
+.navbar-list .github-icon {
   height: inherit;
 }
-
+.navbar-list .github-icon a {
+  height: inherit;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 .navbar-list li:nth-child(1) img {
   height: 52px;
   position: relative;
