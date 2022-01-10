@@ -2,6 +2,8 @@ const inputSearch = document.getElementById("input-search"),
   btnSearch = document.getElementById("btn-search"),
   divNotFound = document.getElementById("not-found");
 
+var BreakException = {};
+
 inputSearch.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
     searchPokemon();
@@ -29,25 +31,31 @@ function refreshHiddenClasses() {
   pokedex.classList.remove("hidden");
   divNotFound.classList.add("hidden");
 }
+function removesHidden(element) {
+  return element.classList.length === 1;
+}
 
 function searchPokemon() {
   let inputValue = inputSearch.value.toLowerCase().trim();
 
-  if (inputValue.length !== 0) {
-    if (pokemonsNameArray.includes(inputValue)) {
-      refreshHiddenClasses();
-      let pokemonNameIndex = pokemonsNameArray.indexOf(inputValue);
-      console.log(`El pokemon ${inputValue} existe!!`);
+  if (inputValue.length > 0) {
+    refreshHiddenClasses();
+    console.log("Pokemon Name Array: ", pokemonsNameArray);
 
-      for (let pokemonIndex in pokedexChilds) {
-        pokedexChilds[pokemonIndex].classList.add("hidden");
+    if (isNaN(inputValue) && inputValue.length > 2) {
+      for (let index in pokedexChilds) {
+        pokedexChilds[index].classList.add("hidden");
+      }
 
-        if (pokemonIndex == pokemonNameIndex) {
+      pokemonsNameArray.forEach(function (pokemon) {
+        if (pokemon.includes(inputValue)) {
+          let pokemonIndex = pokemonsNameArray.indexOf(pokemon);
+          console.log(`El pokemon ${pokemonsNameArray[pokemonIndex]} existe!!`);
+
           pokedexChilds[pokemonIndex].classList.remove("hidden");
         }
-      }
+      });
     } else if (pokemonsIdArray.includes(inputValue)) {
-      refreshHiddenClasses();
       let pokemonIdIndex = pokemonsIdArray.indexOf(inputValue);
 
       for (let pokemonIndex in pokedexChilds) {
@@ -57,8 +65,8 @@ function searchPokemon() {
           pokedexChilds[pokemonIndex].classList.remove("hidden");
         }
       }
-    } else {
-      console.log(`El pokemon no existe :c`);
+    }
+    if (!pokedexChilds.some(removesHidden)) {
       pokemonNotFound();
     }
   }
