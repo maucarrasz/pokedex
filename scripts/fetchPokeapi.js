@@ -91,6 +91,8 @@ function createPokemon(pokemon, id) {
   if (itemName.textContent.length > 11) {
     itemName.style.fontSize = "1.8rem";
   }
+
+  pokedexItem.classList.remove("hidden");
 }
 
 async function createPokemonsNameArray() {
