@@ -2,8 +2,6 @@ const inputSearch = document.getElementById("input-search"),
   btnSearch = document.getElementById("btn-search"),
   divNotFound = document.getElementById("not-found");
 
-var BreakException = {};
-
 inputSearch.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
     searchPokemon();
@@ -55,7 +53,10 @@ function searchPokemon() {
           pokedexChilds[pokemonIndex].classList.remove("hidden");
         }
       });
-    } else if (pokemonsIdArray.includes(inputValue)) {
+    } else if (
+      pokemonsIdArray.includes(inputValue) &&
+      Number(inputValue) <= pokedexChilds.length
+    ) {
       let pokemonIdIndex = pokemonsIdArray.indexOf(inputValue);
 
       for (let pokemonIndex in pokedexChilds) {
@@ -66,7 +67,11 @@ function searchPokemon() {
         }
       }
     }
-    if (!pokedexChilds.some(removesHidden)) {
+    if (
+      !pokedexChilds.some(removesHidden) ||
+      Number(inputValue) < 0 ||
+      Number(inputValue) > pokedexChilds.length
+    ) {
       pokemonNotFound();
     }
   }
