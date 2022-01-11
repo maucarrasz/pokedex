@@ -183,6 +183,7 @@ ul li {
   border-radius: 16px;
   background: khaki;
   cursor: pointer;
+  transition: transform 0.3s linear;
 }
 .bg-pokemon {
   width: inherit;
@@ -289,18 +290,17 @@ ul li {
 
 /* Hover states */
 .btn-search:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.pokedex__item:hover {
+  transform: scale(1.05);
 }
 .pokedex__item:hover .bg-pokemon {
-  /* Oscurecer */
-  /* background: rgba(0, 0, 0, 0.1);
-  -webkit-filter: brightness(95%);
-  filter: brightness(95%); */
-
   /* Aclarar */
   background: rgba(255, 255, 255, 0.1);
-  -webkit-filter: brightness(105%);
-  filter: brightness(105%);
+  -webkit-filter: brightness(101%);
+  filter: brightness(101%);
 }
 .app a:hover {
   text-decoration: underline;
