@@ -152,6 +152,10 @@ ul li {
   background: rgba(255, 255, 255, 0.1);
   outline: none;
 }
+.input-search:focus {
+  background: rgba(255, 255, 255, 0.15);
+}
+
 .btn-search {
   width: 80px;
   height: 30px;
