@@ -20,12 +20,12 @@ let cardStatsNumberArray = cardContainer.querySelectorAll(
 );
 cardStatsNumberArray = Array.from(cardStatsNumberArray);
 
-for (let i = 0; i < pokedexLength; i++) {
-  pokedexChilds[i].addEventListener("click", function () {
+for (let i = 0; i < actualPokedexLength; i++) {
+  actualPokedexChilds[i].addEventListener("click", function () {
     createPokemonCard(pokemonsIdArray[i]);
     openCard();
   });
-  // pokedexChilds[i].addEventListener("click", scrollTopCard);
+  // actualPokedexChilds[i].addEventListener("click", scrollTopCard);
 }
 
 closeContainer.addEventListener("click", closeCard);
