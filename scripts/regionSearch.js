@@ -1,21 +1,36 @@
 const selectRegion = document.getElementById("select-region");
 
+function resetPokemonNameArray() {
+  pokemonsNameArray.length = 0;
+}
+function resetPokemonIdArray() {
+  pokemonsIdArray.length = 0;
+}
+function resetPokemonArrays() {
+  resetPokemonNameArray();
+  resetPokemonIdArray();
+}
+function resetPokedex() {
+  inputSearch.value = "";
+  removeNodeChilds(pokedex);
+}
 function updatePokedexChildsVariables() {
-  console.log("Past: " + actualPokedexChilds.length);
   actualPokedexChilds = Array.from(pokedex.children);
-  console.log("Now: " + actualPokedexChilds.length);
   actualPokedexLength = actualPokedexChilds.length;
 }
-
 async function getRegion(initialIdPokemon, finishIdPokemon) {
+  resetPokedex();
   await consultPokemons(initialIdPokemon, finishIdPokemon);
   updatePokedexChildsVariables();
 
   resetPokemonArrays();
   await createPokemonsNameArray(initialIdPokemon, finishIdPokemon);
   createPokemonIdArray(initialIdPokemon, finishIdPokemon);
-  console.log(pokemonsNameArray);
-  console.log(pokemonsIdArray);
+  // console.log(pokemonsNameArray);
+  // console.log(pokemonsIdArray);
+
+  // Add click event card info to each pokemon card
+  updateClickEventsToOpenCard();
 }
 async function getRegionKanto() {
   await getRegion(1, 151);
@@ -45,8 +60,6 @@ async function getRegionGalar() {
 selectRegion.addEventListener("change", function () {
   const optionSelected = this.options[this.options.selectedIndex];
 
-  inputSearch.value = "";
-  removeNodeChilds(pokedex);
   if (optionSelected.value === "kanto") {
     getRegionKanto();
   } else if (optionSelected.value === "johto") {
@@ -65,15 +78,3 @@ selectRegion.addEventListener("change", function () {
     getRegionGalar();
   }
 });
-
-function resetPokemonNameArray() {
-  pokemonsNameArray.length = 0;
-}
-function resetPokemonIdArray() {
-  pokemonsIdArray.length = 0;
-}
-
-function resetPokemonArrays() {
-  resetPokemonNameArray();
-  resetPokemonIdArray();
-}

@@ -20,27 +20,6 @@ let cardStatsNumberArray = cardContainer.querySelectorAll(
 );
 cardStatsNumberArray = Array.from(cardStatsNumberArray);
 
-for (let i = 0; i < actualPokedexLength; i++) {
-  actualPokedexChilds[i].addEventListener("click", function () {
-    createPokemonCard(pokemonsIdArray[i]);
-    openCard();
-  });
-  // actualPokedexChilds[i].addEventListener("click", scrollTopCard);
-}
-
-closeContainer.addEventListener("click", closeCard);
-document.addEventListener("click", function (e) {
-  let click = e.target;
-  if (click == cardContainer) {
-    closeCard();
-  }
-});
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") {
-    closeCard();
-  }
-});
-
 async function createPokemonCard(id) {
   const pokemon = await fetchData(`https://pokeapi.co/api/v2/pokemon/${id}`);
   const pokemonSpecies = await fetchData(pokemon.species.url);
@@ -209,7 +188,6 @@ function resetCardTemplate() {
 
 function closeCard() {
   bgCardContainer.classList.add("hidden");
-
   resetCardTemplate();
 }
 
@@ -222,3 +200,33 @@ function scrollTopCard() {
     cardInfo.scrollTop = 0;
   }
 }
+
+// Initial addEventListener to each pokedex item in first reloaded
+function updateClickEventsToOpenCard() {
+  console.log("Funciono");
+  console.log(actualPokedexLength);
+  console.log("Pokedex:");
+  for (let i = 0; i < actualPokedexLength; i++) {
+    console.log(i + 1);
+    actualPokedexChilds[i].addEventListener("click", function () {
+      console.log(actualPokedexLength);
+      createPokemonCard(pokemonsIdArray[i]);
+      openCard();
+    });
+    // actualPokedexChilds[i].addEventListener("click", scrollTopCard);
+  }
+}
+updateClickEventsToOpenCard();
+
+closeContainer.addEventListener("click", closeCard);
+document.addEventListener("click", function (e) {
+  let click = e.target;
+  if (click == cardContainer) {
+    closeCard();
+  }
+});
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    closeCard();
+  }
+});
