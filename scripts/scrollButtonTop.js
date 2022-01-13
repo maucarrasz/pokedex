@@ -9,9 +9,9 @@ addEventListener("DOMContentLoaded", function () {
   }
   function getScroll() {
     if (actualScroll() < 450) {
-      buttonGoTop.classList.add("hidden");
+      buttonGoTop.classList.remove("go-top--appear");
     } else {
-      buttonGoTop.classList.remove("hidden");
+      buttonGoTop.classList.add("go-top--appear");
     }
   }
 

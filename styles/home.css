@@ -625,7 +625,14 @@ ul li {
   cursor: pointer;
   -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+
+  transform: translate(0px, 100px);
+  transition: all 0.3s linear;
 }
+.go-top--appear {
+  transform: translate(0px, 0px);
+}
+
 .go-top svg {
   width: 24px;
   height: 24px;
@@ -637,36 +644,3 @@ ul li {
 .hidden {
   display: none;
 }
-
-/* @media screen and (min-width: 400px) {
-  .select--region {
-    width: 240px;
-    height: 24px;
-  }
-  .input-search {
-    width: 240px;
-    height: 28px;
-  }
-} */
-
-/* @media screen and (min-width: 768px) {
-  .card {
-    border-radius: 10px;
-  }
-  .card-info {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 2fr 12px 3fr;
-    grid-template-columns: 2fr 3fr;
-    gap: 12px;
-    overflow-y: auto;
-  }
-  .card-info > div:nth-child(1) {
-    margin-bottom: 0px;
-  }
-  .go-top {
-    padding: 16px;
-    bottom: 32px;
-    right: 32px;
-  }
-} */
