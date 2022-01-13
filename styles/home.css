@@ -632,7 +632,9 @@ ul li {
 .go-top--appear {
   transform: translate(0px, 0px);
 }
-
+.go-top:active {
+  transform: scale(1.15);
+}
 .go-top svg {
   width: 24px;
   height: 24px;
