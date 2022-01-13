@@ -7,15 +7,18 @@ A simple Pokemon catalogue made with HTML, CSS and Vanilla JS.
 ## Features
 - View basic details of each Pokémon
 - Search Pokémon by Name or ID
+- Sort by Region
 - Scroll to top
 - Responsive design
 
 ## Demo Screen
 
-![demo-screen](https://user-images.githubusercontent.com/70554280/147031494-e9bcf8aa-c02a-4367-b43c-3042f5222353.jpg)
+![Captura de pantalla 2022-01-13 183156](https://user-images.githubusercontent.com/70554280/149425503-a74c5d65-f292-42c8-b561-587fd249c4f5.jpg)
 
 
 ## Built With
+- HTML
+- CSS
 - Vanilla JS
 - PokéAPI
 
