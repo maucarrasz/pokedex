@@ -638,7 +638,7 @@ ul li {
   display: none;
 }
 
-@media screen and (min-width: 400px) {
+/* @media screen and (min-width: 400px) {
   .select--region {
     width: 240px;
     height: 24px;
@@ -647,9 +647,9 @@ ul li {
     width: 240px;
     height: 28px;
   }
-}
+} */
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .card {
     border-radius: 10px;
   }
@@ -669,4 +669,4 @@ ul li {
     bottom: 32px;
     right: 32px;
   }
-}
+} */

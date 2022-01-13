@@ -12,7 +12,13 @@
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Russo+One&family=VT323&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles/home.css" media="all" />
+    <link rel="stylesheet" href="./styles/home.css" />
+    <link rel="stylesheet" href="./styles/mobileplus.css" media="screen and (min-width: 400px)"/>
+    <link
+      rel="stylesheet"
+      href="./styles/tablet.css"
+      media="screen and (min-width: 768px)"
+    />
   </head>
   <body>
     <div class="app" id="app">
@@ -51,14 +57,14 @@
         </nav>
       </header>
       <main class="app__main">
-        <!-- ul.pokedex[id="pokedex"]>(li.pokedex__item>div.bg-pokemon>div.pokemon>p.pokemon__id{???}+img.pokemon__img[src="./src/silueta-pikachu.png"][alt="Pokemon"]+p.pokemon__name+div.pokemon__type)*numPokemones -->
+        <!-- ul.pokedex[id="pokedex"]>(li.pokedex__item>div.bg-pokemon>div.pokemon>p.pokemon__id{???}+img.pokemon__img[src="./src/silueta-pikachu.png"][alt="Pokemon"]+p.pokemon__name+div.pokemon__type)*151 -->
         <div class="search-container">
           <div class="select-1">
             <label for="select-region">REGION</label>
             <select
+              id="select-region"
               name="select-region"
               class="select--region"
-              id="select-region"
             >
               <option value="kanto" selected>Kanto (1-151)</option>
               <option value="johto">Johto (152-251)</option>
@@ -71,12 +77,12 @@
             </select>
           </div>
           <div class="searcher">
-            <label for="search">SEARCH</label>
+            <label for="input-search">SEARCH</label>
             <input
               type="text"
+              id="input-search"
               name="search"
               class="input-search"
-              id="input-search"
               placeholder="Name or Id"
               autofocus
             />

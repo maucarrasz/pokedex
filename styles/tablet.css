@@ -1,0 +1,19 @@
+.card {
+  border-radius: 10px;
+}
+.card-info {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 12px 3fr;
+  grid-template-columns: 2fr 3fr;
+  gap: 12px;
+  overflow-y: auto;
+}
+.card-info > div:nth-child(1) {
+  margin-bottom: 0px;
+}
+.go-top {
+  padding: 16px;
+  bottom: 32px;
+  right: 32px;
+}
