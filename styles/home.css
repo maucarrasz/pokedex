@@ -74,7 +74,10 @@ html {
 
 .app__header {
   width: 100%;
+  max-width: 1440px;
   height: 60px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .app__header nav {
   width: inherit;
@@ -127,8 +130,11 @@ ul li {
 }
 
 .app__main {
+  max-width: 1440px;
   min-height: calc(100vh - 171px);
   padding: 0 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .search-container {
@@ -138,8 +144,8 @@ ul li {
   row-gap: 44px;
   justify-content: center;
   align-items: center;
-  margin-top: 32px;
-  margin-bottom: 32px;
+  margin-top: 36px;
+  margin-bottom: 44px;
 }
 .select-1,
 .searcher {
@@ -260,7 +266,10 @@ ul li {
 
 .app__footer {
   width: 100%;
+  max-width: 1440px;
   padding: 0 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .footer-info {
   width: 100%;
@@ -629,6 +638,17 @@ ul li {
   display: none;
 }
 
+@media screen and (min-width: 400px) {
+  .select--region {
+    width: 240px;
+    height: 24px;
+  }
+  .input-search {
+    width: 240px;
+    height: 28px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .card {
     border-radius: 10px;
@@ -650,64 +670,3 @@ ul li {
     right: 32px;
   }
 }
-
-/* .grass-bg {
-  background: rgba(159, 230, 124, 1);
-} */
-/* .poison-bg {
-  background: rgba(226, 144, 226, 1);
-} */
-/* .fire-bg {
-  background: rgba(255, 172, 112, 1);
-} */
-/* .water-bg {
-  background: rgba(173, 192, 237, 1);
-} */
-/* .fighting-bg {
-  background: rgba(255, 133, 127, 1);
-} */
-/* .bug-bg {
-  background: rgba(215, 227, 114, 1);
-} */
-/* .flying-bg {
-  background: rgba(193, 175, 244, 1);
-} */
-/* .normal-bg {
-  background: rgba(224, 224, 161, 1);
-} */
-/* .electric-bg {
-  background: rgba(255, 223, 95, 1);
-} */
-/* .ground-bg {
-  background: rgba(235, 207, 133, 1);
-} */
-/* .rock-bg {
-  background: rgba(226, 201, 98, 1);
-} */
-/* .fairy-bg {
-  background: #ee99ac;
-  background: rgba(247, 176, 192, 1);
-} */
-/* .ghost-bg {
-  background: #705898;
-  background: rgba(142, 116, 184, 1);
-} */
-/* .ice-bg {
-  background: rgba(172, 228, 228, 1);
-} */
-/* .dragon-bg {
-  background: #7038f8;
-  background: rgba(145, 104, 242, 1);
-} */
-/* .psychic {
-  background: #f95587;
-  background: rgba(255, 128, 166, 1);
-} */
-/* .dark {
-  background: #705746;
-  background: rgba(126, 106, 92, 1);
-} */
-/* .steel {
-  background: #b7b7ce;
-  background: rgba(196, 196, 215, 1);
-} */
