@@ -26,6 +26,7 @@ async function createPokemonCard(id) {
 
   cardId.textContent = `#${elegantId(pokemon.id)}`;
   cardName.textContent = `${pokemon.species.name}`;
+  cardName.setAttribute("translate", "no");
 
   let src;
   let imageUrl1 = pokemon.sprites.other.dream_world.front_default;

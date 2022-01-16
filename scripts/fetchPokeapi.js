@@ -152,6 +152,7 @@ function createNewPokemon(pokemon, id) {
   itemImg.setAttribute("src", src);
 
   itemName.textContent = `${pokemon.name}`;
+  itemName.setAttribute("translate", "no");
 
   let type = document.createElement("div");
   itemTypeCtn.appendChild(type);
