@@ -14,7 +14,6 @@ async function consultPokemonsKanto() {
 async function consultPokemonKanto(id) {
   try {
     const pokemon = await fetchData(`https://pokeapi.co/api/v2/pokemon/${id}`);
-    // console.log(pokemon);
     insertPokemonKanto(pokemon, id);
   } catch {
     console.error(error);
@@ -90,9 +89,6 @@ function insertPokemonKanto(pokemon, id) {
     itemName.style.fontSize = "1.8rem";
   }
 }
-consultPokemonsKanto();
-createPokemonsNameArray(1, actualPokedexLength);
-createPokemonIdArray(1, actualPokedexLength);
 
 async function consultPokemons(initialPokemonId, finishPokemonId) {
   for (i = initialPokemonId; i <= finishPokemonId; i++) {
@@ -215,12 +211,3 @@ function createPokemonIdArray(initialPokemonId, finishPokemonId) {
     pokemonsIdArray.push(String(i));
   }
 }
-
-// go top in reloaded
-window.scrollTo(0, 0);
-
-console.log(`N° de Pokemones en Pokeapi: 898`);
-console.log(`N° de Pokemones en mi Pokedex: ${actualPokedexLength}`);
-
-console.log(pokemonsNameArray);
-console.log(pokemonsIdArray);

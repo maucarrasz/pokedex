@@ -321,6 +321,14 @@ ul li {
   margin-bottom: 30px;
 }
 
+/* Loader */
+.loader {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
 /* Hover states */
 .btn-search:hover {
   background: rgba(255, 255, 255, 0.25);
