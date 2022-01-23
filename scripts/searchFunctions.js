@@ -92,7 +92,6 @@ function loaderDisappear() {
 
 async function getRegion(initialIdPokemon, finishIdPokemon) {
   resetPokedex();
-  loaderAppear();
   await consultPokemons(initialIdPokemon, finishIdPokemon);
   updatePokedexChildsVariables();
 
@@ -104,7 +103,6 @@ async function getRegion(initialIdPokemon, finishIdPokemon) {
 
   // Add click event card info to each pokemon card
   updateClickEventsToOpenCard();
-  loaderDisappear();
 }
 async function getRegionKanto() {
   await getRegion(1, 151);
@@ -132,6 +130,8 @@ async function getRegionGalar() {
 }
 
 async function getCompleteRegion(callback) {
+  loaderAppear();
   await callback();
+  loaderDisappear();
   pokedex.classList.remove("hidden");
 }
