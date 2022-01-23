@@ -46,19 +46,15 @@ function searchPokemon() {
         actualPokedexChilds[index].classList.add("hidden");
       }
 
-      pokemonsNameArray.forEach(function (pokemon) {
+      pokemonsNameArray.forEach((pokemon, index) => {
         if (pokemon.includes(inputValue)) {
-          let pokemonIndex = pokemonsNameArray.indexOf(pokemon);
-          console.log(`El pokemon ${pokemonsNameArray[pokemonIndex]} existe!!`);
+          console.log(`El pokemon ${pokemonsNameArray[index]} existe!!`);
 
-          actualPokedexChilds[pokemonIndex].classList.remove("hidden");
+          actualPokedexChilds[index].classList.remove("hidden");
         }
       });
     } else if (pokemonsIdArray.includes(inputValue)) {
-      console.log("Hola");
       let pokemonIdIndex = pokemonsIdArray.indexOf(inputValue);
-      console.log(pokemonIdIndex);
-      console.log(actualPokedexChilds);
       for (let pokemonIndex in actualPokedexChilds) {
         actualPokedexChilds[pokemonIndex].classList.add("hidden");
 

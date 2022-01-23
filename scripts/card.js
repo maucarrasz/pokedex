@@ -77,9 +77,9 @@ async function createPokemonCard(id) {
   }
 
   let aboutContent;
-  for (let i in pokemonSpecies.flavor_text_entries) {
-    if (pokemonSpecies.flavor_text_entries[i].language.name === "en") {
-      aboutContent = pokemonSpecies.flavor_text_entries[i].flavor_text;
+  for (let text of pokemonSpecies.flavor_text_entries) {
+    if (text.language.name === "en") {
+      aboutContent = text.flavor_text;
     }
   }
 
@@ -115,10 +115,10 @@ async function createPokemonCard(id) {
     backgroundLinearGradient(card, bgColors[type1], bgColors[type2]);
   }
 
-  for (let i in pokemon.stats) {
-    cardStatsNumberArray[i].textContent = `${pokemon.stats[i].base_stat}`;
-  }
   console.log(pokemon.stats);
+  pokemon.stats.forEach((stat, i) => {
+    cardStatsNumberArray[i].textContent = `${stat.base_stat}`;
+  });
 
   let divAbility = document.createElement("div");
   cardAbilitiesContainer.appendChild(divAbility);
@@ -172,14 +172,14 @@ async function createPokemonCard(id) {
 
 function resetCardTemplate() {
   card.style.background = "khaki";
-  cardId.textContent = "???";
+  cardId.textContent = "###";
   cardName.textContent = "";
   cardImage.setAttribute("src", "./src/silueta-pikachu.png");
   cardHeight.textContent = "";
   cardWeight.textContent = "";
   cardAbout.textContent = "";
-  for (let i in cardStatsNumberArray) {
-    cardStatsNumberArray[i].textContent = "??";
+  for (let statNumber of cardStatsNumberArray) {
+    statNumber.textContent = "##";
   }
   removeNodeChilds(cardTypesContainer);
   removeNodeChilds(cardGender);
